@@ -1,5 +1,6 @@
 import React from "react";
-import {Dropdown} from "./Dropdown";
+import {Dropdown} from "../Dropdown/Dropdown";
+import "./Options.css"
 
 export class Options extends React.Component {
     sortOptionsMap = {

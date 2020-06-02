@@ -1,4 +1,5 @@
 import React from "react";
+import "./Pagination.css"
 
 export class Pagination extends React.Component {
     pageSize = [10, 20, 50];

@@ -5,9 +5,12 @@ export const reducer = (state = {
     query: '',
     sortOrder: 'asc',
     offset: 0,
-    limit: 20,
+    limit: 10,
     total: null,
-    showDropdown: false
+    showDropdown: false,
+    selectedMovie: [],
+    showDetails: false,
+    genres: ['', 'documentary', 'comedy', 'horror', 'crime'],
 }, action) => {
     switch (action.type) {
         case "OPTIONS":
@@ -68,6 +71,18 @@ export const reducer = (state = {
             state = {
                 ...state,
                 showDropdown: action.payload
+            };
+            break;
+        case "SET_MOVIE":
+            state = {
+                ...state,
+                selectedMovie: action.payload
+            };
+            break;
+        case "SHOW_DETAILS":
+            state = {
+                ...state,
+                showDetails: action.payload
             };
             break;
         default:

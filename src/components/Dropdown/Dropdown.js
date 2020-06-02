@@ -1,4 +1,5 @@
 import React from "react";
+import "./Dropdown.css";
 
 export class Dropdown extends React.Component {
     options = [
@@ -18,7 +19,7 @@ export class Dropdown extends React.Component {
 
     render() {
         return (
-            <div className="dropdown">{this.options.map((item, index) => {
+            <ul className="dropdown">{this.options.map((item, index) => {
                     return <li className="option" key={index}
                                onClick={() => {
                                    this.props.setOption(item.id);
@@ -26,7 +27,7 @@ export class Dropdown extends React.Component {
                                }}
                                >{item.name}</li>
                 })}
-            </div>
+            </ul>
         );
     }
 }

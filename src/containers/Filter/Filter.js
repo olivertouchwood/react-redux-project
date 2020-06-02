@@ -1,18 +1,22 @@
 import React from "react";
-import {Genres} from "../components/Genres";
-import {Options} from "../components/Options";
+import {Genres} from "../../components/Genres/Genres";
+import {Options} from "../../components/Options/Options";
 import {connect} from "react-redux";
 import {
     setOptionAction,
     setGenreAction,
     setSortAction, showDropdownAction
-} from "../actions/actions";
+} from "../../actions/actions";
+import "./Filter.css"
 
 class Filter extends React.Component {
     render() {
         return (
             <div className="filter">
-                <Genres setGenre={(item) => this.props.setGenre(item)}/>
+                <Genres
+                    setGenre={(item) => this.props.setGenre(item)}
+                    genres={this.props.genres}
+                />
                 <Options
                     setOption={(item) => this.props.setOption(item)}
                     sortOrder={this.props.sortOrder}
@@ -32,6 +36,7 @@ const mapStateToProps = (state) => {
         selectedOption: state.reducer.selectedOption,
         sortOrder: state.reducer.sortOrder,
         showDropdown: state.reducer.showDropdown,
+        genres: state.reducer.genres,
     };
 };
 

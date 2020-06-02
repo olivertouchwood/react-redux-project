@@ -8,7 +8,6 @@ export function setMoviesAction() {
       const sortOrder = getState().reducer.sortOrder;
       const limit = getState().reducer.limit;
       const offset = getState().reducer.offset;
-
       return axios.get(`http://localhost:4000/movies?limit=${limit}&sortBy=${option}&sortOrder=${sortOrder}&filter=${genre}&search=${query}&searchBy=title&offset=${offset}`)
           .then(res => {
               dispatch({
@@ -91,4 +90,22 @@ export function showDropdownAction(showDropdown){
             payload: showDropdown
         })
     }
-}
+};
+
+export function setMovieAction(selectedMovie) {
+    return dispatch => {
+        dispatch ({
+            type: "SET_MOVIE",
+            payload: selectedMovie
+        });
+    }
+};
+
+export function setDetailsAction(showDetails) {
+    return dispatch => {
+        dispatch ({
+            type: "SHOW_DETAILS",
+            payload: showDetails
+        });
+    }
+};
